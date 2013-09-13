@@ -1,5 +1,26 @@
 <div class="three columns">
 
+
+<nav class="widget">
+  <h4>Feed</h4>
+  <ul>
+    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom feed</a></li>
+  </ul>
+</nav>
+
+
+{% if SOCIAL %}
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+  {% for name, url in SOCIAL %}
+    <li><a href="{{ url|e }}">{{ name }}</a></li>
+  {% endfor %}
+  </ul>
+</nav>
+{% endif %}
+
+
 <h4>Categories</h4>
 {% if categories %}
 <ul>
@@ -19,24 +40,5 @@
 </ul>
 {% endif %}
 
-
-{% if SOCIAL %}
-<nav class="widget">
-  <h4>Social</h4>
-  <ul>
-  {% for name, url in SOCIAL %}
-    <li><a href="{{ url|e }}">{{ name }}</a></li>
-  {% endfor %}
-  </ul>
-</nav>
-{% endif %}
-
-
-<nav class="widget">
-  <h4>Feed</h4>
-  <ul>
-    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom feed</a></li>
-  </ul>
-</nav>
 
 </div>
